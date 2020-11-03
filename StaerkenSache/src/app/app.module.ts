@@ -10,6 +10,8 @@ import { GreatExperienceListComponent } from './great-experience-list/great-expe
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AuthService } from './service/auth.service';
 
 @NgModule({
   declarations: [
@@ -23,10 +25,12 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
     ReactiveFormsModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
     AngularFirestoreModule
   ],
   providers: [
     GreatExperiencesService,
+    AuthService,
   ],
   bootstrap: [AppComponent]
 })

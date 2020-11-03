@@ -13,7 +13,9 @@ export class GreatExperienceListComponent implements OnInit {
 
   constructor(private greatExperiencesService: GreatExperiencesService) { }
 
-  ngOnInit(): void { this.getCoffeeOrders(); }
+  ngOnInit(): void {
+    this.getCoffeeOrders();
+  }
 
   getCoffeeOrders = () =>
   this.greatExperiencesService
