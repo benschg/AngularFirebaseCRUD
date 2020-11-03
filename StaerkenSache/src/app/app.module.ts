@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GreatExperiencesComponent } from './great-experiences/great-experiences.component';
 import { GreatExperienceListComponent } from './great-experience-list/great-experience-list.component';
+import { ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
