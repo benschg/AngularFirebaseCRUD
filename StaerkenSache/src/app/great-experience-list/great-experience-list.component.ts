@@ -1,3 +1,4 @@
+import { GreatExperiencesService } from './../shared/great-experiences.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GreatExperienceListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private greatExperiencesService: GreatExperiencesService) { }
 
   ngOnInit(): void {
   }
