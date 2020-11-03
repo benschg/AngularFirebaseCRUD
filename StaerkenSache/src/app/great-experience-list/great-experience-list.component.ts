@@ -1,5 +1,6 @@
 import { GreatExperiencesService } from './../shared/great-experiences.service';
 import { Component, OnInit } from '@angular/core';
+import { DocumentChangeAction } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-great-experience-list',
@@ -8,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GreatExperienceListComponent implements OnInit {
 
+  coffeeOrders;
+
   constructor(private greatExperiencesService: GreatExperiencesService) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { this.getCoffeeOrders(); }
+
+  getCoffeeOrders = () =>
+  this.greatExperiencesService
+    .getCoffeeOrders()
+    .subscribe(res => (this.coffeeOrders = res))
+
+    markCompleted = data =>
+      this.greatExperiencesService.updateCoffeeOrder(data)
+
+    deleteOrder = data => this.greatExperiencesService.deleteCoffeeOrder(data);
+
 
 }

@@ -8,23 +8,33 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./great-experiences.component.scss']
 })
 export class GreatExperiencesComponent implements OnInit {
-
+  constructor(public greatExperiencesService: GreatExperiencesService) { }
 
 
   coffees = ['Americano', 'Flat White', 'Cappuccino', 'Latte', 'Espresso', 'Machiato', 'Mocha', 'Hot Chocolate', 'Tea'];
 
   coffeeOrder = [];
+
+  ngOnInit(): void { }
+
   addCoffee = coffee => this.coffeeOrder.push(coffee);
   removeCoffee = coffee => {
     const index = this.coffeeOrder.indexOf(coffee);
     if (index > -1) {
       this.coffeeOrder.splice(index, 1);
     }
-};
+  }
 
-  onSubmit  = coffee => {}
+  // tslint:disable-next-line: typedef
+  onSubmit()  {
+    this.greatExperiencesService.form.value.coffeeOrder = this.coffeeOrder;
+    const data = this.greatExperiencesService.form.value;
 
-  constructor(private greatExperiencesService: GreatExperiencesService) { }
+    this.greatExperiencesService.createCoffeeOrder(data)
+       .then(res => {
+           /*do something here....
+           maybe clear the form or give a success message*/
+       });
+  }
 
-  ngOnInit(): void { }
 }
