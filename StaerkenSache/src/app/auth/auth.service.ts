@@ -41,8 +41,8 @@ export class AuthService {
     this.router.navigate(['admin/verify-email']);
 }
 
-  login(email: string, password: string) {
-    this.firebaseAuth
+  async login(email: string, password: string) {
+    await this.firebaseAuth
       .signInWithEmailAndPassword(email, password)
       .then(value => {
         if (value.user.emailVerified) {
@@ -61,15 +61,15 @@ export class AuthService {
     return await this.firebaseAuth.sendPasswordResetEmail(passwordResetEmail);
  }
 
-  logout() {
-    this.firebaseAuth.signOut();
+ async logout() {
+    await this.firebaseAuth.signOut();
     localStorage.removeItem('user');
     this.router.navigate(['admin/login']);
 
   }
 
   get isLoggedIn(): boolean {
-    const user  =  JSON.parse(localStorage.getItem('user'));
-    return  user  !==  null;
+    const user = JSON.parse(localStorage.getItem('user'));
+    return user !== null;
   }
 }

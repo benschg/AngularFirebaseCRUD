@@ -16,6 +16,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './auth/verify-email/verify-email.component';
+import { AuthRoutingModule } from './auth/auth-routing.module';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { VerifyEmailComponent } from './auth/verify-email/verify-email.component
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
+    AuthRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule
