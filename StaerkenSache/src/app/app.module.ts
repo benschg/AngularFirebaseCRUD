@@ -18,6 +18,7 @@ import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.
 import { VerifyEmailComponent } from './auth/verify-email/verify-email.component';
 import { AuthRoutingModule } from './auth/auth-routing.module';
 import { RouterModule } from '@angular/router';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,7 @@ import { RouterModule } from '@angular/router';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule,
-
+    AngularFireStorageModule,
   ],
   providers: [
     GreatExperiencesService,
