@@ -27,8 +27,11 @@
           </div>
         </div>
       </div>
-      <img [src]="profileUrl | async"
-            width="70%"/>
+            <video width="100%"  autoplay id="video1" preload="auto" loop>
+             <source [src]="videoUrl" type='video/mp4' />
+             Your browser does not support this video.
+           </video>
+         
     </div>
   </div>
 </div>
