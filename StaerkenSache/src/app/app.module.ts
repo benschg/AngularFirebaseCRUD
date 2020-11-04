@@ -23,10 +23,6 @@ import { AuthRoutingModule } from './auth/auth-routing.module';
     AppComponent,
     GreatExperiencesComponent,
     GreatExperienceListComponent,
-    LoginComponent,
-    RegisterComponent,
-    ForgotPasswordComponent,
-    VerifyEmailComponent
   ],
   imports: [
     BrowserModule,
