@@ -1,4 +1,4 @@
-import { ModuleWithProviders, NgModule } from '@angular/core';
+import { ModuleWithProviders, NgModule, Component } from '@angular/core';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
@@ -7,9 +7,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from '../app.component';
 
 
-export const routes: Routes  = [{
-    path:  'auth', component: AppComponent,
-
+export const routes: Routes  = [
+  {
+    path: 'auth', component: AppComponent,
     children: [
         // [...]
         { path:  'login', component:  LoginComponent},
@@ -17,7 +17,7 @@ export const routes: Routes  = [{
         { path:  'forgot-password', component:  ForgotPasswordComponent },
         { path:  'verify-email', component:  VerifyEmailComponent }
     ]
-    }
+  },
 ];
 
 @NgModule({

@@ -17,22 +17,29 @@ import { RegisterComponent } from './auth/register/register.component';
 import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './auth/verify-email/verify-email.component';
 import { AuthRoutingModule } from './auth/auth-routing.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
     AppComponent,
     GreatExperiencesComponent,
     GreatExperienceListComponent,
+    LoginComponent,
+    RegisterComponent,
+    ForgotPasswordComponent,
+    VerifyEmailComponent,
   ],
   imports: [
+    RouterModule,
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule,
+    // AppRoutingModule,
     AuthRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+
   ],
   providers: [
     GreatExperiencesService,
