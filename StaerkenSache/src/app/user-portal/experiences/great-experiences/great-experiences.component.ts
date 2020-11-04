@@ -1,4 +1,4 @@
-import { GreatExperiencesService } from './../shared/great-experiences.service';
+import { GreatExperiencesService } from './../great-experiences.service';
 import { NgForm } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 

@@ -1,4 +1,4 @@
-import { GreatExperiencesService } from './../shared/great-experiences.service';
+import { GreatExperiencesService } from './../great-experiences.service';
 import { Component, OnInit } from '@angular/core';
 import { DocumentChangeAction } from '@angular/fire/firestore';
 
