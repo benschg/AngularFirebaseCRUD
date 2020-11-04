@@ -1,21 +1,29 @@
 // auth.service.ts
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { Observable } from 'rxjs';
 import firebase from 'firebase/app';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  user: Observable<firebase.User | null>;
+  user: firebase.User;
 
-  constructor(private firebaseAuth: AngularFireAuth) {
-    this.user = firebaseAuth.authState;
+  constructor(private firebaseAuth: AngularFireAuth,
+              private router: Router) {
+    this.firebaseAuth.authState.subscribe(user => {
+      if (user){
+        this.user = user;
+        localStorage.setItem('user', JSON.stringify(this.user));
+      } else {
+        localStorage.setItem('user', null);
+      }
+    });
   }
 
-  signup(email: string, password: string) {
-    this.firebaseAuth
+  async signup(email: string, password: string) {
+    await this.firebaseAuth
       .createUserWithEmailAndPassword(email, password)
       .then(value => {
          value.user.sendEmailVerification();
@@ -28,6 +36,10 @@ export class AuthService {
         console.log('Something went wrong:', err.message);
       });
   }
+  async sendEmailVerification() {
+    await (await this.firebaseAuth.currentUser).sendEmailVerification();
+    this.router.navigate(['admin/verify-email']);
+}
 
   login(email: string, password: string) {
     this.firebaseAuth
@@ -45,7 +57,19 @@ export class AuthService {
       });
   }
 
+  async sendPasswordResetEmail(passwordResetEmail: string) {
+    return await this.firebaseAuth.sendPasswordResetEmail(passwordResetEmail);
+ }
+
   logout() {
     this.firebaseAuth.signOut();
+    localStorage.removeItem('user');
+    this.router.navigate(['admin/login']);
+
+  }
+
+  get isLoggedIn(): boolean {
+    const user  =  JSON.parse(localStorage.getItem('user'));
+    return  user  !==  null;
   }
 }
