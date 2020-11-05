@@ -2,7 +2,6 @@ import { AuthService } from './../auth.service';
 import { Component, OnInit } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { Observable } from 'rxjs';
-import { VideoService } from './video.service';
 
 @Component({
   selector: 'app-login',
