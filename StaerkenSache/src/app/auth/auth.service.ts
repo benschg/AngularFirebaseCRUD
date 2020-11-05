@@ -20,7 +20,7 @@ export class AuthService {
   ) {
     this.firebaseAuth.authState.subscribe(user => {
       if (user) {
-        this.user = user;
+        // this.user = user;
         localStorage.setItem('user', JSON.stringify(this.user));
       } else {
         localStorage.setItem('user', null);
@@ -110,7 +110,8 @@ export class AuthService {
         email: user.email,
         displayName: user.displayName,
         photoURL: user.photoURL,
-        emailVerified: user.emailVerified
+        emailVerified: user.emailVerified,
+        initials: user.email.substr(0, 2).toUpperCase(),
       };
       this.user = userData;
       return userRef.set(userData, {

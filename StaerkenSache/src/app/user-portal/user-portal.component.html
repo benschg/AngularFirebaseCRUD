@@ -7,7 +7,7 @@
          <ul>
             <a (click)="LogoutUser()">
                 <div class="circle">
-                    <span class="initials">MS</span>
+                    <span class="initials" >{{ authService.user.initials }}</span>
                 </div>
                 <!-- <img src="" height="64px" width="64px"/> -->
             </a>
@@ -20,4 +20,10 @@
     </ul>
 </nav>
 <p>user-portal works!</p>
+{{ authService.user.initials }}
 {{authService.user ? authService.user.displayName ? authService.user.displayName : authService.user.email : 'NO USER LOGGED IN'}}
+
+<div class="row">
+    <app-great-experiences class="col s6"></app-great-experiences>
+    <app-great-experience-list class="col s6"></app-great-experience-list>
+</div>
