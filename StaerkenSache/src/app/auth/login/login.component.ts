@@ -2,6 +2,7 @@ import { AuthService } from './../auth.service';
 import { Component, OnInit } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { Observable } from 'rxjs';
+import { stringify } from 'querystring';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ import { Observable } from 'rxjs';
 })
 
 export class LoginComponent implements OnInit {
-  profileUrl: Observable<string | null>;
+  //profileUrl: Observable<string | null>;
   videoUrl: string;
   ideoData = true;
 
@@ -27,7 +28,14 @@ export class LoginComponent implements OnInit {
     // required direct URI as assigning at runtime does not work... yeah!
     this.videoUrl = 'https://firebasestorage.googleapis.com/v0/b/staerkensache.appspot.com/o/public%2FStaerkeSchmiede_ParticlesAssemble0001-0200.mp4?alt=media';
 
+
+
+
   }
 
+  async login(name: string, password: string)
+  {
+    await this.authService.login(name, password);
+  }
 }
 
