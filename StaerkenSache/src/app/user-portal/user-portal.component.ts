@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireStorage } from '@angular/fire/storage';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-user-portal',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserPortalComponent implements OnInit {
 
-  constructor() { }
+  constructor(public  authService: AuthService,
+              private storage: AngularFireStorage ) { }
 
   ngOnInit(): void {
+  }
+
+  LogoutUser(): void {
+    this.authService.SignOut();
   }
 
 }

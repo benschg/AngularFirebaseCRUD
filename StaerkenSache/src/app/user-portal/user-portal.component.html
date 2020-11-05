@@ -1,1 +1,23 @@
+<nav>
+    <ul>
+        <li>
+            <a routerLink="/user-portal/experiences">Experiences</a>
+        </li>
+        <li>
+         <ul>
+            <a (click)="LogoutUser()">
+                <div class="circle">
+                    <span class="initials">MS</span>
+                </div>
+                <!-- <img src="" height="64px" width="64px"/> -->
+            </a>
+            <li>test</li>
+
+         </ul>   
+         
+
+        </li>
+    </ul>
+</nav>
 <p>user-portal works!</p>
+{{authService.user ? authService.user.displayName ? authService.user.displayName : authService.user.email : 'NO USER LOGGED IN'}}

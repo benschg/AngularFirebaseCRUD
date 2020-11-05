@@ -1,0 +1,18 @@
+$avatar-size: 48px;
+/* change this value anything, e.g., 100px, 10rem, etc. */
+
+.circle {
+  background-color: #aaa;
+  border-radius: 50%;
+  height: $avatar-size;
+  text-align: center;
+  width: $avatar-size;
+  margin: 5px;
+}
+.initials {
+
+  font-size: 24px;
+  /* 50% of parent */
+  line-height: 1;
+  /* 25% of parent */
+}

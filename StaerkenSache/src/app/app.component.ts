@@ -13,22 +13,5 @@ export class AppComponent {
   password: string;
 
   constructor(public authService: AuthService) {
-}
-
-
-  // tslint:disable-next-line: typedef
-  signup() {
-  this.authService.signup(this.email, this.password);
-  this.email = this.password = '';
-}
-  // tslint:disable-next-line: typedef
-  login() {
-  this.authService.login(this.email, this.password);
-  this.email = this.password = '';
-}
-
-  // tslint:disable-next-line: typedef
-  logout() {
-  this.authService.logout();
-}
+  }
 }

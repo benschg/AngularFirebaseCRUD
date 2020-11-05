@@ -11,7 +11,7 @@ import { stringify } from 'querystring';
 })
 
 export class LoginComponent implements OnInit {
-  //profileUrl: Observable<string | null>;
+  // profileUrl: Observable<string | null>;
   videoUrl: string;
   ideoData = true;
 
@@ -33,9 +33,9 @@ export class LoginComponent implements OnInit {
 
   }
 
-  async login(name: string, password: string)
+  async login(name: string, password: string): Promise<void>
   {
-    await this.authService.login(name, password);
+    await this.authService.SignIn(name, password);
   }
 }
 
